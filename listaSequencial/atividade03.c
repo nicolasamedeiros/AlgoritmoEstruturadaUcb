@@ -15,6 +15,7 @@ int main () {
 
     printf("Digite um numero decimal: ");
     scanf("%f", &decimal);
+    fflush(stdin);
     printf("Digite um double: ");
     scanf("%lf", &decimal2);
     fflush(stdin);
