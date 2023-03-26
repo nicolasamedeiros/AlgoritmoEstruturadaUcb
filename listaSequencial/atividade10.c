@@ -2,8 +2,18 @@
 #include<math.h>
 
 int main () {
-    int x1, x2, y1, y2;
+    float x1, x2, y1, y2, dist;
 
     printf("Digite o valor de x1: ");
-}
+    scanf("%f", &x1);
+    printf("Digite o valor de x2: ");
+    scanf("%f", &x2);
+    printf("Digite o valor de y1: ");
+    scanf("%f", &y1);
+    printf("Digite o valor de y2: ");
+    scanf("%f", &y2);
 
+    dist = sqrt(((pow(x2, 2)) - (pow(x1, 2))) + ((pow(y2, 2)) - (pow(y1, 2))));
+
+    printf("A distancia entre X e Y e de: %.4f", dist);  
+}
