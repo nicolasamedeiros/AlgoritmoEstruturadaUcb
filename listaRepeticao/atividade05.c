@@ -2,20 +2,11 @@
 
 int main()
 {
-    int num, multi = 0;
+    int sum = 0;
 
-    printf("Dgite um valor: ");
-    scanf("%d", &num);
-
-    for (num; multi < 5; num++)
+    for (int num = 2; num <= 50; num+=2)
     {
-        if (num % 3 == 0)
-        {
-            printf("%d\n", num);
-            multi++;
-        }
-        
+        sum += num;
     }
-    
+    printf("A soma de todos os numeros pares ate 50 e: %d", sum);
 }
-
