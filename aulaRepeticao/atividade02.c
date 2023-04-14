@@ -7,9 +7,9 @@ int main()
     printf("Digite um numero: ");
     scanf("%d", &num);
 
-    for (int i = 0; i <= num; i++)
+    for (int i = 0; num >= i; num--)
     {
-        printf("%d\n", i);
+        printf("%d\n", num);
     }
     
 }
