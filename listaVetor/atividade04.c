@@ -3,7 +3,7 @@
 
 int main()
 {
-    int vetor[80], i = 0, nBusca, posicao[6], contador = 0;
+    int vetor[80], i = 0, nBusca, posicao[6], contador = 0, numeroValores;
     char opcao[3];
 
     do 
@@ -19,7 +19,8 @@ int main()
     printf("Digite o numero que deseja buscar: ");
     scanf("%d", &nBusca);
 
-    for (i = 0; i < 80; i++)
+    numeroValores = i;
+    for (i = 0; i < numeroValores; i++)
     {
         if (nBusca == vetor[i])
         {
@@ -34,7 +35,7 @@ int main()
         printf("Existem %d numeros iguais!\n", contador);
         printf("Nas casas: ");
 
-        for (i = 0; i < contador; i++)
+        for (i = 0; i < numeroValores; i++)
         {
             printf("%d", posicao[i]);
         }
