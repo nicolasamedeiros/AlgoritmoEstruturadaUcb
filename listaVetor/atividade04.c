@@ -2,20 +2,20 @@
 
 int main()
 {
-    int numeros[6], i, nBusca, posicao[6], contador = 0;
+    int vetor[80], i, nBusca, posicao[6], contador = 0;
 
-    for ( i = 0; i < 6; i++)
+    for (i = 0; i < 80; i++)
     {
-        numeros[i] = i * 5;
+        printf("Digite um valor: ");
+        scanf("%d", &vetor[i]);
     }
-
-    
+ 
     printf("Digite o numero que deseja buscar: ");
     scanf("%d", &nBusca);
 
-    for (i = 0; i < 6; i++)
+    for (i = 0; i < 80; i++)
     {
-        if (nBusca == numeros[i])
+        if (nBusca == vetor[i])
         {
             posicao[contador] = i;
             contador++;
@@ -33,7 +33,8 @@ int main()
             printf("%d", posicao[i]);
         }
         
-    }
+    } else
+        printf("Nenhum numero igual");
     
     return 0;
 }
