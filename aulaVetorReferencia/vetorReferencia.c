@@ -1,29 +1,30 @@
-#include<stdio.h>
-
 //será void pois vai passar um endereço de memoria e não vai retornar nada
 
-void preencherusuario(int *codigo, char *nome){
+#include <stdio.h>
+
+void preencherdados(int *codigo, char *nome){
     int i;
-    for (i = 0; i < 4; i++)
-    {
-        printf("Digite o id: ");
+    for (i = 0; i < 4; i++){
+        printf("Digite o ID: ");
         scanf("%d", &codigo[i]);
-        printf("Digite o nome do cliente: ");
-        scanf("%s", &nome[i]);
+        printf("Digite o nome: ");
+        scanf("%s", nome[i]);
     }
     
 }
 
 int main()
 {
-    int codigo[4], i;
-    char nome[50][4];  
+    int codigo[4];
+    char nome[4][30];
 
-    preencherusuario(*codigo, *nome);
-    
-    for ( i = 0; i < 4; i++)
+    preencherdados(codigo, nome);
+
+    for (int i = 0; i < 4; i++)
     {
-        printf("%d - %s", codigo[i], nome[i]);
+        printf("%d - %s\n", codigo[i], nome[i]);
     }
     
+    return 0;
 }
+
