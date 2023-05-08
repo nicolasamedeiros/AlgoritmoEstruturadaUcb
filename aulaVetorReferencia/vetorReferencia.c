@@ -2,21 +2,19 @@
 
 #include <stdio.h>
 
-void preencherdados(int *codigo, char *nome){
-    int i;
-    for (i = 0; i < 4; i++){
+void preencherdados(int *codigo, char nome[][50]){
+    for (int i = 0; i < 4; i++){
         printf("Digite o ID: ");
         scanf("%d", &codigo[i]);
-        printf("Digite o nome: ");
+        printf("Digite o nome do usuario: ");
         scanf("%s", nome[i]);
     }
-    
 }
 
 int main()
 {
     int codigo[4];
-    char nome[4][30];
+    char nome[4][50];
 
     preencherdados(codigo, nome);
 
@@ -24,7 +22,6 @@ int main()
     {
         printf("%d - %s\n", codigo[i], nome[i]);
     }
-    
+
     return 0;
 }
-
