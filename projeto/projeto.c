@@ -132,6 +132,25 @@ void backupUsuarios(int vacina[], char nome[][50], char email[][25], char sexo[]
     
 }
 
+void excluirUsuario(int vacina[], char nome[][50], char email[][25], char sexo[][13], char endereco[][30], double *altura, int excluirDados) {
+    for (int i = excluirDados; i < 2; i++)
+    {
+        strcpy(nome[i], nome[i + 1]);
+        strcpy(email[i], email[i + 1]);
+        strcpy(sexo[i], sexo[i + 1]);
+        strcpy(endereco[i], endereco[i + 1]);
+        altura[i] = altura[i + 1];
+        vacina[i] = vacina[i + 1];
+    }
+
+    strcpy(nome[2], "");
+    strcpy(email[2], "");
+    strcpy(sexo[2], "");
+    strcpy(endereco[2], "");
+    altura[2] = 0.0;
+    vacina[2]; 0;
+}
+
 int main()
 {
     int vacina[3], backupVacina[3], i;
@@ -152,7 +171,11 @@ int main()
             editarDado(&vacina, nome, email, sexo, enderenco, altura);
             break;
         case 'c':
-            //codigo
+            printf("Digite o indice do usuario que deseja excluir (0 a 2): ");
+            int excluirDados;
+            scanf("%d", &excluirDados);
+            excluirUsuario(vacina, nome, email, sexo, enderenco, altura, excluirDados);
+            printf("Usuario excluido");
             break;
         case 'd':
             printf("Digite p email do usuario que deseja buscar: ");
