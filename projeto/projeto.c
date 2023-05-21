@@ -151,6 +151,17 @@ void excluirUsuario(int vacina[], char nome[][50], char email[][25], char sexo[]
     vacina[2]; 0;
 }
 
+void restaurandoDados(int vacina[], char nome[][50], char email[][25], char sexo[][13], char endereco[][30], double *altura, int backupVacina[], char backupNome[][50], char backupEmail[][25], char backupSexo[][13], char backupEndereco[][30], double *backupAltura) {
+    for (int i = 0; i < 3; i++){
+        strcpy(nome[i], backupNome[i]);
+        strcpy(email[i], backupEmail[i]);
+        strcpy(sexo[i], backupSexo[i]);
+        strcpy(endereco[i], backupEndereco[i]);
+        altura[i] = backupAltura[i];
+        vacina[i] = backupVacina[i];
+    }
+}
+
 int main()
 {
     int vacina[3], backupVacina[3], i;
@@ -194,7 +205,8 @@ int main()
             printf("Backup realizado.");
             break;
         case 'g':
-            //codigo
+            restaurandoDados(vacina, nome, email, sexo, enderenco, altura, backupVacina, backupNome, backupEmail, backupSexo, backupEndereco, backupAltura);
+            printf("Dados restaurados com sucesso");
             break;
         case 's':
             printf("Programa Finalizado");
