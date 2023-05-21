@@ -120,11 +120,23 @@ void dadosPorEmail(int vacina[], char nome[][50], char email[][25], char sexo[][
     
 }
 
+void backupUsuarios(int vacina[], char nome[][50], char email[][25], char sexo[][13], char endereco[][30], double *altura, int backupVacina[], char backupNome[][50], char backupEmail[][25], char backupSexo[][13], char backupEndereco[][30], double *backupAltura) {
+    for (int i = 0; i < 3; i++){
+        strcpy(backupNome[i], nome[i]);
+        strcpy(backupEmail[i], email[i]);
+        strcpy(backupSexo[i], sexo[i]);
+        strcpy(backupEndereco[i], endereco[i]);
+        backupAltura[i] = altura[i];
+        backupVacina[i] = vacina[i];
+    }
+    
+}
+
 int main()
 {
-    int vacina[3], i;
-    char opcao, nome[3][50], email[3][25], sexo[3][13], enderenco[3][30];
-    double altura[3];
+    int vacina[3], backupVacina[3], i;
+    char opcao, nome[3][50], backupNome[3][50], email[3][25], backupEmail[3][50], sexo[3][13], backupSexo[3][13], enderenco[3][30], backupEndereco[3][30];
+    double altura[3], backupAltura[3];
 
     do{
         printf("Digite a opcao que deseja fazer: ");
@@ -155,12 +167,10 @@ int main()
             }
             break;
         case 'f':
-            //codigo
+            backupUsuarios(vacina, nome, email, sexo, enderenco, altura, backupVacina, backupNome, backupEmail, backupSexo, backupEndereco, backupAltura);
+            printf("Backup realizado.");
             break;
         case 'g':
-            //codigo
-            break;
-        case 'h':
             //codigo
             break;
         case 's':
