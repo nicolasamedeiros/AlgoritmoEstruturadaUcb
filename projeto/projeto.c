@@ -11,6 +11,7 @@ void preencherdados(int vacina[], char nome[][50], char email[][25], char sexo[]
         
         if (nome[i][0] == 'z')
         {
+            system("cls");
             break;
         }
         
@@ -101,6 +102,24 @@ void editarDado(int vacina[], char nome[][50], char email[][25], char sexo[][13]
     } while (opcao != 'z');
 }
 
+void dadosPorEmail(int vacina[], char nome[][50], char email[][25], char sexo[][13], char endereco[][30], double *altura, char *emailBuscado) {
+    for (int i = 0; i < 3; i++){
+        if (strcmp(email[i], emailBuscado) == 0){
+            printf("Dados do usuario com email %s:\n", emailBuscado);
+            printf("Nome: %s", nome[i]);
+            printf("Email: %s", email[i]);
+            printf("Sexo: %s", sexo[i]);
+            printf("Endereco: %s", endereco[i]);
+            printf("Altura: %.2lf\n", altura[i]);
+            printf("Vacina: %d\n", vacina[i]);
+            break;
+        }
+        else
+            printf("Usuario de email %s nao encontrado", emailBuscado);
+    }
+    
+}
+
 int main()
 {
     int vacina[3], i;
@@ -124,7 +143,10 @@ int main()
             //codigo
             break;
         case 'd':
-            //codigo
+            printf("Digite p email do usuario que deseja buscar: ");
+            char emailBuscado[25];
+            fgets(emailBuscado, 25, stdin);
+            dadosPorEmail(vacina, nome, email, sexo, enderenco, altura, emailBuscado);
             break;
         case 'e':
             printf("Usuarios cadstrados\n");
