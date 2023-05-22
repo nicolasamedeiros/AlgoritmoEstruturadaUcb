@@ -4,7 +4,7 @@
 
 void preencherdados(int vacina[], char nome[][50], char email[][25], char sexo[][13], char endereco[][30], double *altura){
     
-    for (int i = 0; i < 3; i++){
+    for (int i = 0; i < 999; i++){
         printf("Digite o nome do usuario: ");
         fgets(nome[i], 50, stdin);
         fflush(stdin);
@@ -103,9 +103,9 @@ void editarDado(int vacina[], char nome[][50], char email[][25], char sexo[][13]
 }
 
 void dadosPorEmail(int vacina[], char nome[][50], char email[][25], char sexo[][13], char endereco[][30], double *altura, char *emailBuscado) {
-    for (int i = 0; i < 3; i++){
+    for (int i = 0; i < 999; i++){
         if (strcmp(email[i], emailBuscado) == 0){
-            printf("Dados do usuario com email %s:\n", emailBuscado);
+            printf("Dados do usuario com email %s", emailBuscado);
             printf("Nome: %s", nome[i]);
             printf("Email: %s", email[i]);
             printf("Sexo: %s", sexo[i]);
@@ -121,7 +121,7 @@ void dadosPorEmail(int vacina[], char nome[][50], char email[][25], char sexo[][
 }
 
 void backupUsuarios(int vacina[], char nome[][50], char email[][25], char sexo[][13], char endereco[][30], double *altura, int backupVacina[], char backupNome[][50], char backupEmail[][25], char backupSexo[][13], char backupEndereco[][30], double *backupAltura) {
-    for (int i = 0; i < 3; i++){
+    for (int i = 0; i < 999; i++){
         strcpy(backupNome[i], nome[i]);
         strcpy(backupEmail[i], email[i]);
         strcpy(backupSexo[i], sexo[i]);
@@ -133,7 +133,7 @@ void backupUsuarios(int vacina[], char nome[][50], char email[][25], char sexo[]
 }
 
 void excluirUsuario(int vacina[], char nome[][50], char email[][25], char sexo[][13], char endereco[][30], double *altura, int excluirDados) {
-    for (int i = excluirDados; i < 2; i++)
+    for (int i = excluirDados; i < 999; i++)
     {
         strcpy(nome[i], nome[i + 1]);
         strcpy(email[i], email[i + 1]);
@@ -143,16 +143,16 @@ void excluirUsuario(int vacina[], char nome[][50], char email[][25], char sexo[]
         vacina[i] = vacina[i + 1];
     }
 
-    strcpy(nome[2], "");
-    strcpy(email[2], "");
-    strcpy(sexo[2], "");
-    strcpy(endereco[2], "");
-    altura[2] = 0.0;
-    vacina[2]; 0;
+    strcpy(nome[999], "");
+    strcpy(email[999], "");
+    strcpy(sexo[999], "");
+    strcpy(endereco[999], "");
+    altura[999] = 0.0;
+    vacina[999]; 0;
 }
 
 void restaurandoDados(int vacina[], char nome[][50], char email[][25], char sexo[][13], char endereco[][30], double *altura, int backupVacina[], char backupNome[][50], char backupEmail[][25], char backupSexo[][13], char backupEndereco[][30], double *backupAltura) {
-    for (int i = 0; i < 3; i++){
+    for (int i = 0; i < 999; i++){
         strcpy(nome[i], backupNome[i]);
         strcpy(email[i], backupEmail[i]);
         strcpy(sexo[i], backupSexo[i]);
@@ -164,9 +164,9 @@ void restaurandoDados(int vacina[], char nome[][50], char email[][25], char sexo
 
 int main()
 {
-    int vacina[3], backupVacina[3], i;
-    char opcao, nome[3][50], backupNome[3][50], email[3][25], backupEmail[3][50], sexo[3][13], backupSexo[3][13], enderenco[3][30], backupEndereco[3][30];
-    double altura[3], backupAltura[3];
+    int vacina[999], backupVacina[999], i;
+    char opcao, nome[999][50], backupNome[999][50], email[999][25], backupEmail[999][50], sexo[999][13], backupSexo[999][13], enderenco[999][30], backupEndereco[999][30];
+    double altura[999], backupAltura[999];
 
     do{
         printf("Digite a opcao que deseja fazer: ");
@@ -189,15 +189,19 @@ int main()
             printf("Usuario excluido");
             break;
         case 'd':
-            printf("Digite p email do usuario que deseja buscar: ");
+            printf("Digite o email do usuario que deseja buscar: ");
             char emailBuscado[25];
             fgets(emailBuscado, 25, stdin);
             dadosPorEmail(vacina, nome, email, sexo, enderenco, altura, emailBuscado);
             break;
         case 'e':
             printf("Usuarios cadstrados\n");
-            for ( i = 0; i < 3; i++){
-                printf(" Nome: %s Email: %s Sexo: %s Endereco: %s altura: %.2lf\n vacina: %d\n", nome[i], email[i], sexo[i], enderenco[i], altura[i], vacina[i]);
+            for ( i = 0; i < 999; i++){
+                if (strlen(nome[i]) > 2)
+                {
+                    printf(" Nome: %s Email: %s Sexo: %s Endereco: %s altura: %.2lf\n vacina: %d\n", nome[i], email[i], sexo[i], enderenco[i], altura[i], vacina[i]);
+                }
+            break;
             }
             break;
         case 'f':
