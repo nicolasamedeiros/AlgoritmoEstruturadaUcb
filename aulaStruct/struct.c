@@ -1,64 +1,50 @@
 #include<stdio.h>
+#include<string.h>
+#include<locale.h>
 
-//declaração de struct
-struct Aluno
-{
-    char nome[20];
-    char telefone[20];
-    char cpf[11];
-    double todoDinheiroHoje;
+#define TAM 50
+
+struct tipoPessoa{
     int idade;
+    float peso;
+    char nome[TAM];
 };
 
-struct Professor
-{
-    char nome[20];
-    char telefone[20];
-    char cpf[11];
-    double todoDinheiroHojepMim;
-};
-
+typedef struct tipoPessoa Pessoa;
 
 int main()
 {
-    //struct variaveis simples
-    struct Aluno aluno1;
-    struct Professor professor1;
-    aluno1.todoDinheiroHoje = 100000;
+    setlocale(LC_ALL, "Portuguese");
 
-    //struct de variaveis de array  
-    int vetor[50];
-    struct Aluno listaAlunosVetor[4];
-    struct Aluno listaAlunosMatrix[2][2];
+    //inicializando variavel
+    Pessoa pes = {0, 0.0, "Teste"};
 
-    printf("Digite o nome do aluno: ");
-    scanf("%s", aluno1.nome);
-    printf("Digite o cpf do aluno: ");
-    fgets(aluno1.cpf, 11, stdin);
-    printf("Digite o telefone do aluno: ");
-    fgets(aluno1.telefone, 20, stdin);
-    printf("Digite o dinheiro do aluno: ");
-    scanf("%lf", &aluno1.todoDinheiroHoje);
+    printf("Inicio: \n");
+    printf("Idade: %d\n", pes.idade);
+    printf("Peso: %.2f\n", pes.peso);
+    printf("Nome: %s\n", pes.nome);
 
-    //colocar dados no vetor
-    for (int i = 0; i < 50; i++)
-    {
-        printf("Digite o nome do aluno: ");
-        fgets(listaAlunosVetor[i].nome, 20, stdin);
-        printf("Digite a idade do aluno: ");
-        scanf("%d", &listaAlunosVetor[i].idade);
-    }
-    
-    //colocar dados na matrix
-    for (int i = 0; i < 2; i++)
-    {
-        for (int j = 0; i < 2; i++)
-        {
-            printf("Digite o nome do aluno: ");
-            fgets(listaAlunosMatrix[i][j].nome);
-        }
-        
-    }
-    
-    return 0;
+    //atribuindo valores
+    pes.idade = 20;
+    pes.peso = 80.5;
+    strcpy(pes.nome, "João");
+
+    printf("Alterando valores\n");
+    printf("Idade: %d\n", pes.idade);
+    printf("Peso: %.2f\n", pes.peso);
+    printf("Nome: %s\n", pes.nome);
+
+    //Solicitando pelo usuário
+    printf("Digite a idade: ");
+    scanf("%d", &pes.idade);
+    printf("Digite o peso: ");
+    scanf("%f", &pes.peso);
+    fflush(stdin);
+    printf("Digite o nome: ");
+    scanf("%s", &pes.nome);
+
+    printf("Dados digitados pelo usuario\n");
+    printf("idade: %d\n", pes.idade);
+    printf("peso: %.2f\n", pes.peso);
+    printf("nome: %s\n", pes.nome);
 }
